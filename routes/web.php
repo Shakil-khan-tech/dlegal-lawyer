@@ -150,29 +150,6 @@ Route::post('lawyer/case/get-contact-number', [CasesController::class, 'getConta
 Route::post('lawyer/account/get-chamber', [CasesController::class, 'getChamber'])->name('lawyer.account.chamber');
 
 Route::get('/cmd', function () {
-    $data = \App\CaseProceeding::distinct('updated_next_date')->orderBy('updated_next_date')->get('updated_next_date');
-    dd($data);
-    //Artisan::call('make:model Chamber -m');
-    // Schema::create('chambers', function (Blueprint $table) {
-    //         $table->id();
-    //         $table->string('ch_name')->nullable();
-    //         $table->string('ch_logo')->nullable();
-    //         $table->string('ch_telephone')->nullable();
-    //         $table->string('ch_mobile_one')->nullable();
-    //         $table->string('ch_mobile_two')->nullable();
-    //         $table->string('ch_email_one')->nullable();
-    //         $table->string('ch_email_two')->nullable();
-    //         $table->text('ch_main_office_address')->nullable();
-    //         $table->text('ch_office_one_address')->nullable();
-    //         $table->text('ch_office_two_address')->nullable();
-    //         $table->string('ch_person_type')->nullable();
-    //         $table->string('ch_person_signature')->nullable();
-    //         $table->text('ch_letter_write_up')->nullable();
-    //         $table->text('ch_letter_address')->nullable();
-    //         $table->integer('user_id')->nullable();
-    //         $table->integer('status')->default('0');
-    //         $table->timestamps();
-    //     });
     return "success";
 });
 
