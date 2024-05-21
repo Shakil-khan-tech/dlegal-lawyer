@@ -1,0 +1,130 @@
+<?php
+
+namespace App\Http\Controllers\admin;
+
+use App\ClientCategory;
+use App\ClientClass;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\NotificationText;
+
+use function Sodium\compare;
+
+class ClientCategoryController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $data = ClientCategory::with('clientClass')->get();
+        return view('admin.clientcategory.index',compact('data'));
+       
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $clientclass = ClientClass::where('status',1)->latest()->get();
+        return view('admin.clientcategory.create',compact('clientclass'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        ClientCategory::create($request->all());
+        $notify_lang=NotificationText::all();
+        $notification=$notify_lang->where('lang_key','create')->first()->custom_lang;
+        $notification=array('messege'=>$notification,'alert-type'=>'success');
+        return redirect()->route('admin.client-category.index')->with($notification);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $clientclass = ClientClass::where('status',1)->latest()->get();
+        $data = ClientCategory::findOrfail($id);
+        return view('admin.clientcategory.view',compact('data','clientclass'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $clientclass = ClientClass::where('status',1)->latest()->get();
+        $data = ClientCategory::findOrfail($id);
+        return view('admin.clientcategory.edit',compact('data','clientclass'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+      
+        $data = ClientCategory::findOrFail($id);
+        $input = $request->all();
+        $data->update($input);
+        $notify_lang=NotificationText::all();
+        $notification=$notify_lang->where('lang_key','update')->first()->custom_lang;
+        $notification=array('messege'=>$notification,'alert-type'=>'success');
+        return redirect()->route('admin.client-category.index')->with($notification);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $data = ClientCategory::findOrFail($id);
+        $data->delete();
+        $notify_lang=NotificationText::all();
+        $notification=$notify_lang->where('lang_key','delete')->first()->custom_lang;
+        $notification=array('messege'=>$notification,'alert-type'=>'success');
+        return redirect()->back()->with($notification);
+    }
+    public function changeStatus($id){
+        $class=ClientCategory::find($id);
+        if($class->status==1){
+            $class->status=0;
+            $notify_lang=NotificationText::all();
+            $notification=$notify_lang->where('lang_key','inactive')->first()->custom_lang;
+            $message=$notification;
+        }else{
+            $class->status=1;
+            $notify_lang=NotificationText::all();
+            $notification=$notify_lang->where('lang_key','active')->first()->custom_lang;
+            $message=$notification;
+        }
+        $class->save();
+        return response()->json($message);
+
+    }
+}
