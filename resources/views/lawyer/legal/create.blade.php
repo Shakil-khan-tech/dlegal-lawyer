@@ -143,7 +143,6 @@
                         @csrf
 
                         <input type="hidden" name="lawyer_id" value="{{ auth()->guard('lawyer')->id() }}">
-
                         {{-- case info section --}}
                         <div class="case-info-section section " style="border-radius: 0.35rem;background: transparent;">
                             <div class="edit_header" style="border-bottom: 1px solid #cfcfd1 !important;">
@@ -2472,7 +2471,7 @@
 
                         </div>
 
-                        <div class="form-navigation mt-3">
+                        {{-- <div class="form-navigation mt-3">
                             <div style="overflow:auto;">
                                 <div style="float:right; margin-top: 30px;">
                                     <button type="button" class="previous" onclick="prev();">Previous</button>
@@ -2481,13 +2480,15 @@
                                     <button type="submit" class="submit">Submit</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </form>
                 </div>
-                {{-- <div class="card-footer d-flex justify-content-between">
+                <div class="card-footer d-flex justify-content-between mt-5">
                     <button class="btn btn-danger" onclick="prev();">Previous</button>
-                    <button class="btn btn-info" id="next-button" onclick="next();" id="">Next</button>
-                </div> --}}
+                    <button type="submit" class="btn btn-info" id="next-button" onclick="next();" >Next</button>
+                    {{-- <button type="submit" id="sumit-button" onclick="submit();">Submit</button> --}}
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -2505,6 +2506,7 @@
                 $('#case-status').removeClass('btn-secondary');
                 $('#case-status').addClass('btn-info');
                 $('.case-status-section').removeClass('d-none');
+                
             }
             if (step == 2) {
                 $('#case-status').removeClass('btn-info');
@@ -2541,7 +2543,7 @@
                 $('#case-document').removeClass('btn-secondary');
                 $('#case-document').addClass('btn-info');
                 $('.case-document-section').removeClass('d-none');
-                $('#next-button').text('Save');
+                $('#next-button').text('save');
             }
             if (step < 5) {
                 window.scrollTo(0, 0);
@@ -2599,11 +2601,12 @@
                     $('#case-document').removeClass('btn-secondary');
                     $('#case-document').addClass('btn-info');
                     $('.case-document-section').removeClass('d-none');
-                    $('#next-button').text('Save');
+                    $('#next-button').removeClass('d-none');
                 }
             }
 
         }
+        
 
         // datetimepicker
 
