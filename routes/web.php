@@ -125,6 +125,7 @@ use App\Http\Controllers\Admin\LedgerSubHeadController;
 use App\Http\Controllers\Admin\NextDayPresenceController;
 use App\Http\Controllers\Admin\PaymentTypeController;
 use App\Http\Controllers\Admin\PoliceStationController;
+use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\TitleEventsController;
 use App\Http\Controllers\Admin\ZoneController;
 use App\Http\Controllers\ClientBehalfController;
@@ -644,6 +645,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
 
     Route::resource('branch', BranchController::class);
     Route::get('branch-status/{id}', [BranchController::class, 'changeStatus']);
+
+    Route::resource('service-category', ServiceCategoryController::class);
     
 });
 

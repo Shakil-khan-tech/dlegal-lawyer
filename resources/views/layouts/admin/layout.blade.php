@@ -44,7 +44,7 @@
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Litigation</span>
                 </a>
-                <div id="admin-case-pages" class="collapse {{ Route::is('admin.case-class.index') ? 'show':'' }}" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="admin-case-pages" class="collapse {{ Route::is('admin.case-class.index') || Route::is('admin.case-category.index') || Route::is('admin.case-type.index') || Route::is('admin.case-matter.index') || Route::is('admin.case-title.index') || Route::is('admin.case-law.index') ?'show':'' }}" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                          <a class="collapse-item {{ Route::is('admin.case-class.index')?'active':'' }}" href="{{ route('admin.case-class.index') }}">All Case Class</a>
                          <a class="collapse-item {{ Route::is('admin.case-category.index') || Route::is('admin.case-category.index')?'active':'' }}" href="{{ route('admin.case-category.index') }}">All Case Category</a>
@@ -106,6 +106,18 @@
                 <div id="admin-client" class="collapse " aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                          <a class="collapse-item {{ Route::is('admin.engagement-type.index')?'active':'' }}" href="{{ route('admin.engagement-type.index') }}">All Engagement Types</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#admin-legal"
+                    aria-expanded="true" aria-controls="admin-legal">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Legal Service</span>
+                </a>
+                <div id="admin-legal" class="collapse " aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                         <a class="collapse-item {{ Route::is('admin.service-category.index')?'active':'' }}" href="{{ route('admin.service-category.index') }}">Service Category</a>
                     </div>
                 </div>
             </li>
