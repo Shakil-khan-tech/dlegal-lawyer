@@ -36,6 +36,29 @@
     /*.paginate_button {
 
     }*/
+    .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0 !important;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 3rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 0.85rem;
+    color: #858796;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+}
+.dropdown-toggle::after {
+    border: 0;
+}
 </style>
 @endsection
 @section('lawyer-content')
@@ -64,21 +87,23 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Progress Status</th>
-                            <th>Service Received</th>
+                            <th>Service Category</th>
+                            <th>Service Type</th>
+                            <th>Service Mater</th>
+                            <th>Dispute</th>
+                            <th>Client Name</th>
+                            <th>Legal Service Required</th>
+                            <th>Law</th>
+                            <th>Service Progress Status</th>
+                            <th>Receive Date & Time</th>
+                            <th>Received By</th>
                             <th>Service Timeline</th>
                             <th>Service Completed</th>
                             <th>Service Delivered</th>
-                            <th>Delivery Mode</th>
-                            <th>Service Category</th>
-                            <th>Service Type</th>
-                            <th>Service Matter</th>
-                            <th>Service Description</th>
-                            <th>Client Name</th>
-                            <th>Assigned Person</th>
-                            <th>Assigned Lead</th>
-                            <th>Reference ID</th>
-                            <th>Action</th>
+                            <th>Delivery To</th>
+                            <th>Service/Evidence Type</th>
+                            <th>Advocate/Law Firm</th>
+                            <th style="width:30px!important;padding-right:8pximportant;padding-left:0px;" >Action</th>
                         </tr>
                     </thead>
                 </table>
@@ -130,20 +155,22 @@ sScrollXInner: "100%",
 ajax: "{{ route(\Request::route()->getName()) }}",
 columns: [
   {data: 'id', name: 'id'},
-  {data: 'Progress Status', name: 'Progress Status'},
-  {data: 'Service Received', name: 'Service Received'},
-  {data: 'Service Timeline', name: 'Service Timeline'},
-  {data: 'Service Completed', name: 'Service Completed'},
-  {data: 'Service Delivered', name: 'Service Delivered'},
-  {data: 'police station', name: 'police station'},
-  {data: 'Service Category', name: 'Service Category'},
-  {data: 'Service Type', name: 'Service Type'},
-  {data: 'Service Matter', name: 'Service Matter'},
-  {data: 'Service Description', name: 'Service Description'},
-  {data: 'Client Name', name: 'Client Name'},
-  {data: 'Assigned Person', name: 'Assigned Person'},
-  {data: 'Assigned Lead', name: 'Assigned Lead'},
-  {data: 'Reference ID', name: 'Reference ID'},
+  {data: 'service_info_category_id', name: 'service_info_category_id'},
+  {data: 'service_info_type_id', name: 'service_info_type_id'},
+  {data: 'service_info_mater_id', name: 'service_info_mater_id'},
+  {data: 'service_info_dispute', name: 'service_info_dispute'},
+  {data: 'service_info_client_name_id', name: 'service_info_client_name_id'},
+  {data: 'service_info_legal_service_required_id', name: 'service_info_legal_service_required_id'},
+  {data: 'service_info_low_id', name: 'service_info_low_id'},
+  {data: 'service_progress_status_id', name: 'service_progress_status_id'},
+  {data: 'service_status_recive_date_time', name: 'service_status_recive_date_time'},
+  {data: 'service_status_recived_by_id', name: 'service_status_recived_by_id'},
+  {data: 'service_status_timeline_deadline', name: 'service_status_timeline_deadline'},
+  {data: 'service_status_completed', name: 'service_status_completed'},
+  {data: 'service_status_delivered', name: 'service_status_delivered'},
+  {data: 'service_status_delivery_to_id', name: 'service_status_delivery_to_id'},
+  {data: 'service_status_evidence_type_id', name: 'service_status_evidence_type_id'},
+  {data: 'client_advocate_law_firm_id', name: 'client_advocate_law_firm_id'},
   {
       data: 'action', 
       name: 'action', 
@@ -152,6 +179,13 @@ columns: [
   },
   ],
 });
+table.column(8).visible(false);
+        table.column(5).visible(false);
+        table.column(9).visible(false);
+        table.column(10).visible(false);
+        table.column(13).visible(false);
+        table.column(15).visible(false);
+        table.column(16).visible(false);
 });
 </script>
 @endsection

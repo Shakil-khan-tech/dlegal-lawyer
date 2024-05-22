@@ -14,13 +14,24 @@ class LegalServiceController extends Controller
 
     public function all()
     {
+
+        // dd(LegalService::all());
         if (request()->ajax()) {
-            return DataTables::of(Cases::query())
+            return DataTables::of(LegalService::query())
             ->setRowClass('{{ $id % 2 == 0 ? "text-info" : "text-danger" }}')
             ->setRowId('{{$id}}')
             ->setRowAttr([
                 'align' => 'center'
             ])
+            ->addColumn('action', function ($row) {
+                $edit = route('lawyer.legalservice.all', $row->id);
+                $show = route('lawyer.legalservice.all', $row->id);
+                $delete = route('lawyer.legalservice.all', $row->id);
+                $confirm = "return confirm('Are you sure you want to delete?')";
+                $actionBtn='<div class="dropdown action_doc"><button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i> </button> <div class="dropdown-menu " aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="'.$show.'"><i class="fas fa-eye mr-2"></i></a><a class="dropdown-item" href="'.$edit.'"><i class="fas fa-edit mr-2"></i></a><a class="dropdown-item" onClick="'.$confirm.'" href="'.$delete.'"><i class="fas fa-trash-alt mr-2"></i></a> </div></div>';
+                return $actionBtn;
+            })
+            ->rawColumns(['action'])
             ->make(true);
         }
         $title = 'All Legal Services';
@@ -158,8 +169,16 @@ class LegalServiceController extends Controller
      */
     public function store(Request $request)
     {
+        // Schema::create('legal_services', function (Blueprint $table) {
+        //     $table->id();
+        //     foreach (request()->except('_token') as $key => $value) {
+        //     $table->text($key)->nullable();
+        //     }
+        //     $table->timestamps();
+        // });
         LegalService::create($request->all());
-        return back();
+        $notification = array('messege' => "Service Added Successfully", 'alert-type' => 'success');
+        return redirect()->route('lawyer.legalservice.all')->with($notification);
     }
 
     /**

@@ -141,9 +141,9 @@
                 <div class="">
                     <form action="{{ route('lawyer.legalservice.store') }}" method="post">
                         @csrf
-                        
+
                         <input type="hidden" name="lawyer_id" value="{{ auth()->guard('lawyer')->id() }}">
-                        
+
                         {{-- case info section --}}
                         <div class="case-info-section section " style="border-radius: 0.35rem;background: transparent;">
                             <div class="edit_header" style="border-bottom: 1px solid #cfcfd1 !important;">
@@ -151,402 +151,395 @@
                             </div>
                             <div class="card shadow mb-2" style="border-top-left-radius: 0;border-top-right-radius: 0;">
                                 <div class="card-body">
-                            <div class="row ">
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label for="service_info_category_id"
-                                            class="col-form-label font-weight-bold text-info col-md-4">Service
-                                            Category </label>
-                                        <div class="col-md-8">
-                                            <select name="service_info_category_id" id="service_info_category_id"
-                                                class="form-control select2">
-                                                <option value="">Select</option>
+                                    <div class="row ">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label for="service_info_category_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Service
+                                                    Category </label>
+                                                <div class="col-md-8">
+                                                    <select name="service_info_category_id" id="service_info_category_id"
+                                                        class="form-control select2">
+                                                        <option value="Select">Select</option>
 
-                                                <option value="">District</option>
-                                                <option value="">Special</option>
-                                                <option value="">High Court</option>
-                                                <option value="">Appellate</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
+                                                       
 
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <label for="service_info_type_id"
-                                            class="col-form-label font-weight-bold text-info col-md-4">Service
-                                            Type</label>
-                                        <div class="col-md-8">
-                                            <select name="service_info_type_id" id="service_info_type_id"
-                                                class="form-control select2">
-                                                <option selected disabled hidden>Select</option>
-
-                                                <option value="">District</option>
-                                                <option value="">Special</option>
-                                                <option value="">High Court</option>
-                                                <option value="">Appellate</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="service_info_mater_id"
-                                            class="col-form-label font-weight-bold text-info col-md-4">Service
-                                            Mater</label>
-                                        <div class="col-md-8">
-                                            <div class="Add_section">
-                                                <div class="service w-100">
-                                                    <div class="service_metter">
-                                                        <div class="input-group mb-3">
-                                                            <select name="service_info_mater_id"
-                                                                class="form-control"
-                                                                id="service_info_mater_id">
-                                                                <option value="">Select</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-large btn-success add_metter" type="button"><i
-                                                        class="fas fa-plus"></i></button>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="service_info_dispute"
-                                            class="col-form-label font-weight-bold text-info col-md-4">Dispute</label>
-                                        <div class="col-md-8">
-                                            <div class="Add_section">
-                                                <div class="dispute w-100">
-                                                    <div class=" add_dispute">
-                                                        <div class="input-group mb-3">
-                                                            <input type="text" class="form-control"
-                                                                name="service_info_dispute" id="service_info_dispute"
-                                                                value="" placeholder="Type dispute">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-large btn-success  add_dis" type="button"><i
-                                                        class="fas fa-plus"></i></button>
-
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                  
-                                </div>
-                                <div class="col-md-6">
-
-                                    <div class="form-group row">
-                                        <label for="service_info_division_id"
-                                            class="col-form-label font-weight-bold text-info col-md-4">Division</label>
-                                        <div class="col-md-8">
-                                            <select name="service_info_division_id" id="service_info_division_id"
-                                                class="form-control select2">
-                                                <option selected disabled hidden>Select</option>
-
-                                                <option value="">District</option>
-                                                <option value="">Special</option>
-                                                <option value="">High Court</option>
-                                                <option value="">Appellate</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="service_info_district_id"
-                                            class="col-form-label font-weight-bold text-info col-md-4">District</label>
-                                        <div class="col-md-8">
-                                            <select name="service_info_district_id" id="service_info_district_id"
-                                                class="form-control select2">
-                                                <option selected disabled hidden>Select</option>
-
-                                                <option value="">District</option>
-                                                <option value="">Special</option>
-                                                <option value="">High Court</option>
-                                                <option value="">Appellate</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="service_info_police_station_id"
-                                            class="col-form-label font-weight-bold text-info col-md-4">Police
-                                            Station</label>
-                                        <div class="col-md-8">
-                                            <select name="service_info_police_station_id"
-                                                id="service_info_police_station_id" class="form-control select2">
-                                                <option selected disabled hidden>Select</option>
-
-                                                <option value="">District</option>
-                                                <option value="">Special</option>
-                                                <option value="">High Court</option>
-                                                <option value="">Appellate</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="service_info_claim_amount_prayer"
-                                            class="col-form-label font-weight-bold text-info col-md-4">Claim
-                                            Amount/prayer</label>
-                                        <div class="col-md-8">
-                                            <input type="text" class="form-control"
-                                                name="service_info_claim_amount_prayer"
-                                                id="service_info_claim_amount_prayer" value=""
-                                                placeholder="Type claim amount">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="service_info_other_claim"
-                                            class="col-form-label font-weight-bold text-info col-md-4">Other Claim (If
-                                            any)</label>
-                                        <div class="col-md-8">
-                                            <select name="service_info_other_claim" id="service_info_other_claim"
-                                                class="form-control select2">
-                                                <option selected disabled hidden>Select</option>
-
-                                                <option value="">District</option>
-                                                <option value="">Special</option>
-                                                <option value="">High Court</option>
-                                                <option value="">Appellate</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-12">
-
-                                    <div class="form-group row">
-                                        <label for="service_info_description"
-                                            class="col-form-label font-weight-bold text-info col-md-2">Dispute
-                                            Discription</label>
-                                        <div class="col-md-10">
-                                            <textarea class="form-control" name="service_info_description" id="service_info_description" cols="30"
-                                                rows="3" placeholder="Type dispute discription"></textarea>
-    
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                            </div>
-                           
-                                <div class="card shadow mb-2">
-                                    <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label for="service_info_client_name_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Client
-                                                Name</label>
-                                            <div class="col-md-8">
-                                                <div class="Add_section">
-                                                    <div class="client w-100">
-                                                        <div class=" client_name">
-                                                            <div class="input-group mb-3">
-                                                                <select name="service_info_client_name_id"
-                                                                    id="service_info_client_name_id"
-                                                                    class="form-control select2 ">
-                                                                    <option selected disabled hidden>Select</option>
-
-                                                                    <option value="">District</option>
-                                                                    <option value="">Special</option>
-                                                                    <option value="">High Court</option>
-                                                                    <option value="">Appellate</option>
-
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-success add_client " style="width: 36px"><i
-                                                            class="fas fa-fw fa-plus"></i></button>
+                                                    </select>
                                                 </div>
                                             </div>
 
 
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_info_client_coordinator"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Client
-                                                Coordinator</label>
-                                            <div class="col-md-8">
-                                                <input type="text" class="form-control"
-                                                    name="service_info_client_coordinator"
-                                                    id="service_info_client_coordinator" value=""
-                                                    placeholder="Type cliend coordinator">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_info_legal_service_required_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Legal Service
-                                                Required</label>
-                                            <div class="col-md-8">
-                                                <div class="Add_section">
-                                                    <div class="legal w-100">
-                                                        <div class=" legal_service">
-                                                            <div class="input-group mb-3">
-                                                                <select name="service_info_legal_service_required_id"
-                                                                    id="service_info_legal_service_required_id"
-                                                                    class="form-control select2">
-                                                                    <option selected disabled hidden>Select</option>
-
-                                                                    <option value="">District</option>
-                                                                    <option value="">Special</option>
-                                                                    <option value="">High Court</option>
-                                                                    <option value="">Appellate</option>
-
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-success add_legal" style="width: 36px"><i
-                                                            class="fas fa-fw fa-plus"></i></button>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_info_previous_despute"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Previous Dispute
-                                                (If any)</label>
-                                            <div class="col-md-8">
-                                                <input type="text" class="form-control"
-                                                    name="service_info_previous_despute"
-                                                    id="service_info_previous_despute" value=""
-                                                    placeholder="Type previous dispute ">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-6">
-                                       
-                                        <div class="form-group row">
-                                            <label for="service_info_opponent_name"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Opponent
-                                                Name</label>
-                                            <div class="col-md-8">
-                                                <input type="text" class="form-control"
-                                                    name="service_info_opponent_name" id="service_info_opponent_name"
-                                                    value="" placeholder="Type opponent name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_info_referrer_details"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Opponent
-                                                Coordinator</label>
-                                            <div class="col-md-8">
-                                                <input type="text" class="form-control"
-                                                    name="service_info_referrer_details"
-                                                    id="service_info_referrer_details" value=""
-                                                    placeholder="Type referrer details">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_info_low_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Law</label>
-                                            <div class="col-md-8">
-                                                <div class="Add_section">
-                                                    <div class="low w-100">
-                                                        <div class="all_low">
-                                                            <div class="input-group mb-3">
-                                                                <select name="service_info_low_id"
-                                                                    id="service_info_low_id" class="form-control select2">
-                                                                    <option selected disabled hidden>Select</option>
-
-                                                                    <option value="">District</option>
-                                                                    <option value="">Special</option>
-                                                                    <option value="">High Court</option>
-                                                                    <option value="">Appellate</option>
-
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-success add_low " style="width: 36px"><i
-                                                            class="fas fa-fw fa-plus"></i></button>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_info_section_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Section</label>
-                                            <div class="col-md-8">
-                                                <div class="Add_section">
-                                                    <div class="section w-100">
-                                                        <div class="all_section">
-                                                            <div class="input-group mb-3">
-                                                    <select name="service_info_section_id" id="service_info_section_id"
+                                            <div class="form-group row">
+                                                <label for="service_info_type_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Service
+                                                    Type</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_info_type_id" id="service_info_type_id"
                                                         class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
 
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
-
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
+                                                       
                                                     </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="service_info_mater_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Service
+                                                    Mater</label>
+                                                <div class="col-md-8">
+                                                    <div class="Add_section">
+                                                        <div class="service w-100">
+                                                            <div class="service_metter">
+                                                                <div class="input-group mb-3">
+                                                                    <select name="service_info_mater_id"
+                                                                        class="form-control" id="service_info_mater_id">
+                                                                        <option value="Select">Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+                                                                       
+
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <button class="btn btn-large btn-success add_metter"
+                                                            type="button"><i class="fas fa-plus"></i></button>
                                                     </div>
-                                                    <button class="btn btn-success add_allsection" style="width:36px"><i
-                                                            class="fas fa-fw fa-plus"></i></button>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_dispute"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Dispute</label>
+                                                <div class="col-md-8">
+                                                    <div class="Add_section">
+                                                        <div class="dispute w-100">
+                                                            <div class=" add_dispute">
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" class="form-control"
+                                                                        name="service_info_dispute"
+                                                                        id="service_info_dispute" value=""
+                                                                        placeholder="Type dispute">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-large btn-success  add_dis" type="button"><i
+                                                                class="fas fa-plus"></i></button>
+
+
+                                                    </div>
                                                 </div>
 
                                             </div>
+
                                         </div>
+                                        <div class="col-md-6">
 
+                                            <div class="form-group row">
+                                                <label for="service_info_division_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Division</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_info_division_id" id="service_info_division_id"
+                                                        class="form-control select2">
+                                                        <option selected disabled hidden>Select</option>
 
-                                    </div>
-                                </div>
-                                    </div>
-                                </div>
-                                <div class="card shadow mb-2">
-                                    <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12">
+                                                        
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
 
-                                        <div class="form-group row">
-                                            <label for="service_info_summary_facts"
-                                                class="col-form-label font-weight-bold text-info col-md-2">Summary
-                                                Facts</label>
-                                            <div class="col-md-10">
-                                                <textarea class="form-control" name="service_info_summary_facts" id="service_info_summary_facts" cols="30"
-                                                    rows="3" placeholder="Type summary facts"></textarea>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_district_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">District</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_info_district_id" id="service_info_district_id"
+                                                        class="form-control select2">
+                                                        <option selected disabled hidden>Select</option>
 
+                                                       
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_police_station_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Police
+                                                    Station</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_info_police_station_id"
+                                                        id="service_info_police_station_id" class="form-control select2">
+                                                        <option selected disabled hidden>Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_claim_amount_prayer"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Claim
+                                                    Amount/prayer</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control"
+                                                        name="service_info_claim_amount_prayer"
+                                                        id="service_info_claim_amount_prayer" value=""
+                                                        placeholder="Type claim amount">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_other_claim"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Other Claim
+                                                    (If
+                                                    any)</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_info_other_claim" id="service_info_other_claim"
+                                                        class="form-control select2">
+                                                        <option selected disabled hidden>Select</option>
+
+                                                    
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-12">
+
+                                            <div class="form-group row">
+                                                <label for="service_info_description"
+                                                    class="col-form-label font-weight-bold text-info col-md-2">Dispute
+                                                    Discription</label>
+                                                <div class="col-md-10">
+                                                    <textarea class="form-control" name="service_info_description" id="service_info_description" cols="30"
+                                                        rows="3" placeholder="Type dispute discription"></textarea>
+
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="service_info_special_note"
-                                                class="col-form-label font-weight-bold text-info col-md-2">Special
-                                                Note</label>
-                                            <div class="col-md-10">
-                                                <textarea class="form-control" name="service_info_special_note" id="service_info_special_note" value=""
-                                                    placeholder="Type special note" cols="30" rows="3"></textarea>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card shadow mb-2">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label for="service_info_client_name_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Client
+                                                    Name</label>
+                                                <div class="col-md-8">
+                                                    <div class="Add_section">
+                                                        <div class="client w-100">
+                                                            <div class=" client_name">
+                                                                <div class="input-group mb-3">
+                                                                    <select name="service_info_client_name_id"
+                                                                        id="service_info_client_name_id"
+                                                                        class="form-control select2 ">
+                                                                        <option selected disabled hidden>Select</option>
+
+                                                                  
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-success add_client " style="width: 36px"><i
+                                                                class="fas fa-fw fa-plus"></i></button>
+                                                    </div>
+                                                </div>
+
 
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_info_reference_case"
-                                                class="col-form-label font-weight-bold text-info col-md-2">Reference
-                                                Case/Issue Info</label>
-                                            <div class="col-md-10">
-                                                <textarea class="form-control" name="service_info_reference_case" id="service_info_reference_case" value=""
-                                                    placeholder="Type reference case" cols="30" rows="3"></textarea>
+                                            <div class="form-group row">
+                                                <label for="service_info_client_coordinator"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Client
+                                                    Coordinator</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control"
+                                                        name="service_info_client_coordinator"
+                                                        id="service_info_client_coordinator" value=""
+                                                        placeholder="Type cliend coordinator">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_legal_service_required_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Legal
+                                                    Service
+                                                    Required</label>
+                                                <div class="col-md-8">
+                                                    <div class="Add_section">
+                                                        <div class="legal w-100">
+                                                            <div class=" legal_service">
+                                                                <div class="input-group mb-3">
+                                                                    <select name="service_info_legal_service_required_id"
+                                                                        id="service_info_legal_service_required_id"
+                                                                        class="form-control select2">
+                                                                        <option selected disabled hidden>Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
 
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-success add_legal" style="width: 36px"><i
+                                                                class="fas fa-fw fa-plus"></i></button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_previous_despute"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Previous
+                                                    Dispute
+                                                    (If any)</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control"
+                                                        name="service_info_previous_despute"
+                                                        id="service_info_previous_despute" value=""
+                                                        placeholder="Type previous dispute ">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <div class="form-group row">
+                                                <label for="service_info_opponent_name"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Opponent
+                                                    Name</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control"
+                                                        name="service_info_opponent_name" id="service_info_opponent_name"
+                                                        value="" placeholder="Type opponent name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_referrer_details"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Opponent
+                                                    Coordinator</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control"
+                                                        name="service_info_referrer_details"
+                                                        id="service_info_referrer_details" value=""
+                                                        placeholder="Type referrer details">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_low_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Law</label>
+                                                <div class="col-md-8">
+                                                    <div class="Add_section">
+                                                        <div class="low w-100">
+                                                            <div class="all_low">
+                                                                <div class="input-group mb-3">
+                                                                    <select name="service_info_low_id"
+                                                                        id="service_info_low_id"
+                                                                        class="form-control select2">
+                                                                        <option selected disabled hidden>Select</option>
+                                                                      
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-success add_low " style="width: 36px"><i
+                                                                class="fas fa-fw fa-plus"></i></button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_section_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Section</label>
+                                                <div class="col-md-8">
+                                                    <div class="Add_section">
+                                                        <div class="section w-100">
+                                                            <div class="all_section">
+                                                                <div class="input-group mb-3">
+                                                                    <select name="service_info_section_id"
+                                                                        id="service_info_section_id"
+                                                                        class="form-control select2">
+                                                                        <option selected disabled hidden>Select</option>
+
+                                                                      
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-success add_allsection"
+                                                            style="width:36px"><i class="fas fa-fw fa-plus"></i></button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shadow mb-2">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="form-group row">
+                                                <label for="service_info_summary_facts"
+                                                    class="col-form-label font-weight-bold text-info col-md-2">Summary
+                                                    Facts</label>
+                                                <div class="col-md-10">
+                                                    <textarea class="form-control" name="service_info_summary_facts" id="service_info_summary_facts" cols="30"
+                                                        rows="3" placeholder="Type summary facts"></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_special_note"
+                                                    class="col-form-label font-weight-bold text-info col-md-2">Special
+                                                    Note</label>
+                                                <div class="col-md-10">
+                                                    <textarea class="form-control" name="service_info_special_note" id="service_info_special_note" value=""
+                                                        placeholder="Type special note" cols="30" rows="3"></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_info_reference_case"
+                                                    class="col-form-label font-weight-bold text-info col-md-2">Reference
+                                                    Case/Issue Info</label>
+                                                <div class="col-md-10">
+                                                    <textarea class="form-control" name="service_info_reference_case" id="service_info_reference_case" value=""
+                                                        placeholder="Type reference case" cols="30" rows="3"></textarea>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                    </div>
-                                </div>
+                            </div>
                         </div>
                         {{-- case status section --}}
                         <div class="case-status-section d-none section " style="background: transparent;">
@@ -554,13 +547,13 @@
                                 <h3 class="font-weight-bold py-2" style="color: black;font-size:1rem;">Service Status
                                 </h3>
                             </div>
-                            
-                                <div class="row mt-3 ">
-                                    <div class="col-md-6" style="padding-right: 8px;">
-                                        <div class="card shadow mb-2">
-                                            <div class="card-body">
 
-                                        {{-- <div class="form-group row">
+                            <div class="row mt-3 ">
+                                <div class="col-md-6" style="padding-right: 8px;">
+                                    <div class="card shadow mb-2">
+                                        <div class="card-body">
+
+                                            {{-- <div class="form-group row">
                                             <label for="service_status_category_id"
                                                 class="col-form-label font-weight-bold text-info col-md-4">Service
                                                 Category</label>
@@ -570,218 +563,203 @@
                                                     placeholder="Type service category" >
                                             </div>
                                         </div> --}}
-                                       
-                                        <div class="form-group row">
-                                            <label for="service_progress_status_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Service Progress
-                                                Status</label>
-                                            <div class="col-md-8">
-                                                <div class="Add_section">
-                                                    <div class="service_progress w-100">
-                                                    <div class="service_progress_status">
-                                                        <div class="input-group mb-3">
 
-                                                    <select name="service_progress_status_id"
-                                                        id="service_progress_status_id" class="form-control select2">
-                                                        <option selected disabled hidden>Select</option>
+                                            <div class="form-group row">
+                                                <label for="service_progress_status_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Service
+                                                    Progress
+                                                    Status</label>
+                                                <div class="col-md-8">
+                                                    <div class="Add_section">
+                                                        <div class="service_progress w-100">
+                                                            <div class="service_progress_status">
+                                                                <div class="input-group mb-3">
 
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                                    <select name="service_progress_status_id"
+                                                                        id="service_progress_status_id"
+                                                                        class="form-control select2">
+                                                                        <option selected disabled hidden>Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
 
-                                                    </select>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                    {{-- <button class="btn btn-success add_status "><i
-                                                            class="fas fa-fw fa-plus"></i></button> --}}
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_recive_date_time"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Receive Date &
-                                                Time</label>
-                                            <div class="col-md-8">
-                                                <input type="date" name="service_status_recive_date_time"
-                                                    id="service_status_recive_date_time"
-                                                    class="form-control dateandtimepicker">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_recived_mode_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Received
-                                                Mode</label>
-                                            <div class="col-md-8">
-                                                <select name="service_status_recived_mode_id"
-                                                    id="service_status_recived_mode_id" class="form-control select2">
-                                                    <option selected disabled hidden>Select</option>
-
-                                                    <option value="">District</option>
-                                                    <option value="">Special</option>
-                                                    <option value="">High Court</option>
-                                                    <option value="">Appellate</option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_recived_form_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Received
-                                                Form</label>
-                                            <div class="col-md-8">
-                                                <select name="service_status_recived_form_id"
-                                                    id="service_status_recived_form_id" class="form-control select2">
-                                                    <option selected disabled hidden>Select</option>
-
-                                                    <option value="">District</option>
-                                                    <option value="">Special</option>
-                                                    <option value="">High Court</option>
-                                                    <option value="">Appellate</option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_recived_by_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Received
-                                                By</label>
-                                            <div class="col-md-8">
-                                                <select name="service_status_recived_by_id"
-                                                    id="service_status_recived_by_id" class="form-control select2">
-                                                    <option selected disabled hidden>Select</option>
-
-                                                    <option value="">District</option>
-                                                    <option value="">Special</option>
-                                                    <option value="">High Court</option>
-                                                    <option value="">Appellate</option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_note"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Note</label>
-                                            <div class="col-md-8">
-                                                <textarea name="service_status_note" id="service_status_note" class="form-control new" placeholder="Type note"
-                                                    aria-invalid="false"></textarea>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6" style="padding-left: 8px;" >
-                                        <div class="card shadow mb-2">
-                                            <div class="card-body">
-
-                                        {{-- <h3 class="completed">Completed Service Status</h3> --}}
-                                        <div class="form-group row">
-                                            <label for="service_status_timeline_deadline"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Service
-                                                Timeline/Deadline</label>
-                                            <div class="col-md-8">
-                                                <input type="date" name="service_status_timeline_deadline"
-                                                    id="service_status_timeline_deadline"
-                                                    class="form-control dateandtimepicker">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_completed"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Service
-                                                Completed</label>
-                                            <div class="col-md-8">
-                                                <input type="date" name="service_status_completed"
-                                                    id="service_status_completed" class="form-control dateandtimepicker">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_delivered"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Service
-                                                Delivered</label>
-                                            <div class="col-md-8">
-                                                <input type="date" name="service_status_delivered"
-                                                    id="service_status_delivered" class="form-control dateandtimepicker">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_delivery_mode_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Delivery
-                                                Mode</label>
-                                            <div class="col-md-8">
-                                                <select name="service_status_delivery_mode_id"
-                                                    id="service_status_delivery_mode_id" class="form-control select2">
-                                                    <option selected disabled hidden>Select</option>
-
-                                                    <option value="">District</option>
-                                                    <option value="">Special</option>
-                                                    <option value="">High Court</option>
-                                                    <option value="">Appellate</option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_delivery_to_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Delivery
-                                                To</label>
-                                            <div class="col-md-8">
-                                                <div class="Add_section">
-                                                    <div class="delivery w-100">
-                                                        <div class="delivery_to">
-                                                            <div class="input-group mb-3">
-                                                    <select name="service_status_delivery_to_id"
-                                                        id="service_status_delivery_to_id" class="form-control select2">
-                                                        <option selected disabled hidden>Select</option>
-
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
-
-                                                    </select>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        {{-- <button class="btn btn-success add_status "><i
+                                                            class="fas fa-fw fa-plus"></i></button> --}}
+
                                                     </div>
-                                                    <button class="btn btn-success add_delivery"><i
-                                                            class="fas fa-fw fa-plus"></i></button>
+
                                                 </div>
-
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_evidence_type_id"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Service/Evidence
-                                                Type</label>
-                                            <div class="col-md-8">
-                                                <select name="service_status_evidence_type_id"
-                                                    id="service_status_evidence_type_id" class="form-control select2">
-                                                    <option selected disabled hidden>Select</option>
-
-                                                    <option value="">District</option>
-                                                    <option value="">Special</option>
-                                                    <option value="">High Court</option>
-                                                    <option value="">Appellate</option>
-
-                                                </select>
+                                            <div class="form-group row">
+                                                <label for="service_status_recive_date_time"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Receive Date
+                                                    &
+                                                    Time</label>
+                                                <div class="col-md-8">
+                                                    <input type="date" name="service_status_recive_date_time"
+                                                        id="service_status_recive_date_time"
+                                                        class="form-control ">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="service_status_note"
-                                                class="col-form-label font-weight-bold text-info col-md-4">Note</label>
-                                            <div class="col-md-8">
-                                                <textarea name="service_status_note" id="service_status_note" class="form-control new" placeholder="Type note"
-                                                    aria-invalid="false"></textarea>
+                                            <div class="form-group row">
+                                                <label for="service_status_recived_mode_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Received
+                                                    Mode</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_status_recived_mode_id"
+                                                        id="service_status_recived_mode_id" class="form-control select2">
+                                                        <option selected disabled hidden>Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
+
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                            <div class="form-group row">
+                                                <label for="service_status_recived_form_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Received
+                                                    Form</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_status_recived_form_id"
+                                                        id="service_status_recived_form_id" class="form-control select2">
+                                                        <option selected disabled hidden>Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_status_recived_by_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Received
+                                                    By</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_status_recived_by_id"
+                                                        id="service_status_recived_by_id" class="form-control select2">
+                                                        <option selected disabled hidden>Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_status_note"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Note</label>
+                                                <div class="col-md-8">
+                                                    <textarea name="service_status_note" id="service_status_note" class="form-control new" placeholder="Type note"
+                                                        aria-invalid="false"></textarea>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
-                            
+                                <div class="col-md-6" style="padding-left: 8px;">
+                                    <div class="card shadow mb-2">
+                                        <div class="card-body">
+
+                                            {{-- <h3 class="completed">Completed Service Status</h3> --}}
+                                            <div class="form-group row">
+                                                <label for="service_status_timeline_deadline"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Service
+                                                    Timeline/Deadline</label>
+                                                <div class="col-md-8">
+                                                    <input type="date" name="service_status_timeline_deadline"
+                                                        id="service_status_timeline_deadline"
+                                                        class="form-control ">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_status_completed"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Service
+                                                    Completed</label>
+                                                <div class="col-md-8">
+                                                    <input type="date" name="service_status_completed"
+                                                        id="service_status_completed"
+                                                        class="form-control ">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_status_delivered"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Service
+                                                    Delivered</label>
+                                                <div class="col-md-8">
+                                                    <input type="date" name="service_status_delivered"
+                                                        id="service_status_delivered"
+                                                        class="form-control ">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_status_delivery_mode_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Delivery
+                                                    Mode</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_status_delivery_mode_id"
+                                                        id="service_status_delivery_mode_id" class="form-control select2">
+                                                        <option selected disabled hidden>Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_status_delivery_to_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Delivery
+                                                    To</label>
+                                                <div class="col-md-8">
+                                                    <div class="Add_section">
+                                                        <div class="delivery w-100">
+                                                            <div class="delivery_to">
+                                                                <div class="input-group mb-3">
+                                                                    <select name="service_status_delivery_to_id"
+                                                                        id="service_status_delivery_to_id"
+                                                                        class="form-control select2">
+                                                                        <option selected disabled hidden>Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-success add_delivery"><i
+                                                                class="fas fa-fw fa-plus"></i></button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_status_evidence_type_id"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Service/Evidence
+                                                    Type</label>
+                                                <div class="col-md-8">
+                                                    <select name="service_status_evidence_type_id"
+                                                        id="service_status_evidence_type_id" class="form-control select2">
+                                                        <option selected disabled hidden>Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="service_status_note"
+                                                    class="col-form-label font-weight-bold text-info col-md-4">Note</label>
+                                                <div class="col-md-8">
+                                                    <textarea name="service_status_note" id="service_status_note" class="form-control new" placeholder="Type note"
+                                                        aria-invalid="false"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                         {{-- event stage section --}}
@@ -809,10 +787,9 @@
                                                         <label class="font-weight-bold text-info"
                                                             for="letter_notice_documents_id">Title</label>
                                                         <select name="letter_notice_documents_id" class="form-control">
-                                                            <option value="">Select</option>
-
-                                                            <option value=""></option>
-
+                                                            <option value="Select">Select</option>
+                                                            <option value="District">District</option>
+                                                            <option value="Special">Special</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -841,9 +818,9 @@
                                                                 for="letter_notice_type_id">Evidence</label>
                                                             <select name="letter_notice_type_id" class="form-control"
                                                                 id="letter_notice_type_id">
-                                                                <option value="">Select</option>
-
-                                                                <option value=""></option>
+                                                                <option value="Select">Select</option>
+                                                                <option value="District">District</option>
+                                                                <option value="Special">Special</option>
 
                                                             </select>
 
@@ -916,10 +893,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_filing_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -944,10 +920,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_service_return_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -971,10 +946,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_sr_completed_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -997,10 +971,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_set_off_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1024,10 +997,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_issue_frame_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1049,10 +1021,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_ph_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1073,10 +1044,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_fph_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1101,10 +1071,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="taking_cognizance_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1128,10 +1097,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="arrest_surrender_cw_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1156,10 +1124,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_court_transfer_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1181,10 +1148,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_bail_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1208,10 +1174,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_witness_from_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1235,10 +1200,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_witness_to_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1262,10 +1226,9 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <select name="case_steps_argument_type_id" class="form-control">
-                                                        <option value="">Select</option>
-
-                                                        <option value="">
-                                                        </option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1374,9 +1337,9 @@
                                                         <div class="col-sm-12">
                                                             <select name="document_recived_id" class="form-control"
                                                                 id="document_recived_id">
-                                                                <option value="">Select</option>
-                                                                <option value="">Select</option>
-                                                                <option value=""></option>
+                                                                <option value="Select">Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -1402,8 +1365,9 @@
                                                         <div class="col-sm-8">
                                                             <select name="document_recived_type_id" class="form-control"
                                                                 id="document_recived_type_id">
-                                                                <option value="">Select</option>
-                                                                <option value=""></option>
+                                                                <option value="Select">Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
                                                             </select>
                                                         </div>
                                                         <button class="btn btn-large btn-success add_row"
@@ -1430,8 +1394,9 @@
                                                         <div class="col-sm-12">
                                                             <select name="document_required_id" class="form-control"
                                                                 id="document_required_id">
-                                                                <option value="">Select</option>
-                                                                <option value=""></option>
+                                                                <option value="Select">Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -1457,8 +1422,9 @@
                                                         <div class="col-sm-8">
                                                             <select name="document_required_type_id" class="form-control"
                                                                 id="document_required_type_id">
-                                                                <option value="">Select</option>
-                                                                <option value=""></option>
+                                                                <option value="Select">Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
                                                             </select>
                                                         </div>
                                                         <button class="btn btn-large btn-success add_col"
@@ -1484,8 +1450,8 @@
                                                     <div class="form-group">
                                                         <label for="documents_file"
                                                             class="font-weight-bold text-info">File</label>
-                                                        <input type="file" name="documents_file"
-                                                            id="documents_file" class="form-control "
+                                                        <input type="file" name="documents_file" id="documents_file"
+                                                            class="form-control "
                                                             style="padding: 1px;line-height: 100% !important;">
                                                     </div>
                                                 </div>
@@ -1504,8 +1470,9 @@
                                                             class="font-weight-bold text-info">Type</label>
                                                         <select name="documents_type_id" class="form-control"
                                                             id="documents_type_id">
-                                                            <option value="">Select</option>
-                                                            <option value=""></option>
+                                                            <option value="Select">Select</option>
+                                                            <option value="District">District</option>
+                                                            <option value="Special">Special</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1515,7 +1482,7 @@
                                                             class="font-weight-bold text-info">Uploaded
                                                             By</label>
                                                         <input name="documents_uploaded_by" id="documents_uploaded_by"
-                                                            class="form-control" readonly type="text">
+                                                            class="form-control"  type="text">
                                                     </div>
                                                 </div>
                                                 <div class="col-2">
@@ -1524,7 +1491,7 @@
                                                             class="font-weight-bold text-info">Date &
                                                             Time</label>
                                                         <input name="documents_date_time" id="documents_date_time"
-                                                            class="form-control dateandtimepicker" type="text">
+                                                            class="form-control " type="text">
                                                     </div>
                                                 </div>
                                                 <div class="col-2">
@@ -1534,7 +1501,9 @@
                                                                 class="font-weight-bold text-info">Action</label>
                                                             <select name="documents_action_id" class="form-control"
                                                                 id="documents_action_id">
-                                                                <option value="">Select</option>
+                                                                <option value="Select">Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
                                                             </select>
 
                                                         </div>
@@ -1583,9 +1552,9 @@
                                                                             name="client_advocate_law_firm_id"
                                                                             class="form-control"
                                                                             id="client_advocate_law_firm_id">
-                                                                            <option value="">Select</option>
-
-                                                                            <option value=""></option>
+                                                                            <option value="Select">Select</option>
+                                                                            <option value="District">District</option>
+                                                                            <option value="Special">Special</option>
 
                                                                         </select>
                                                                     </div>
@@ -1614,9 +1583,9 @@
                                                                             name="client_lead_lawyer_id"
                                                                             class="form-control"
                                                                             id="client_lead_lawyer_id">
-                                                                            <option value="">Select</option>
-
-                                                                            <option value=""></option>
+                                                                            <option value="Select">Select</option>
+                                                                            <option value="District">District</option>
+                                                                            <option value="Special">Special</option>
 
                                                                         </select>
                                                                     </div>
@@ -1642,9 +1611,9 @@
                                                                         <select required name="client_assigned_lawyer_id"
                                                                             class="form-control"
                                                                             id="client_assigned_lawyer_id">
-                                                                            <option value="">Select</option>
-
-                                                                            <option> </option>
+                                                                            <option value="Select">Select</option>
+                                                                            <option value="District">District</option>
+                                                                            <option value="Special">Special</option>
 
                                                                         </select>
                                                                     </div>
@@ -1671,7 +1640,9 @@
                                                                             name="client_assigned_clerk_id"
                                                                             class="form-control"
                                                                             id="client_assigned_clerk_id">
-                                                                            <option value="">Select</option>
+                                                                            <option value="Select">Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1696,7 +1667,9 @@
                                                                         <select name="client_clerk_contact_number_id"
                                                                             class="form-control"
                                                                             id="client_clerk_contact_number_id">
-                                                                            <option value="">Select</option>
+                                                                            <option value="Select">Select</option>
+                                                                        <option value="District">District</option>
+                                                                        <option value="Special">Special</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1832,10 +1805,8 @@
                                                     <select name="client_info_on_behalf_of_id"
                                                         id="client_info_on_behalf_of_id" class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1850,11 +1821,8 @@
                                                         id="client_info_on_behalf_division_id"
                                                         class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
-
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1868,10 +1836,8 @@
                                                     <select name="client_info_on_behalf_zone_id"
                                                         id="client_info_on_behalf_zone_id" class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1889,11 +1855,8 @@
                                                     <select name="client_info_category_id" id="client_info_category_id"
                                                         class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
-
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1908,11 +1871,8 @@
                                                         id="client_info_category_district_id"
                                                         class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
-
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1926,11 +1886,8 @@
                                                     <select name="client_info_category_area_id"
                                                         id="client_info_category_area_id" class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
-
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1947,11 +1904,8 @@
                                                     <select name="client_info_sub_category_id"
                                                         id="client_info_sub_category_id" class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
-
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1966,10 +1920,9 @@
                                                     <select name="client_info_police_station_id"
                                                         id="client_info_police_station_id" class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -1983,10 +1936,9 @@
                                                     <select name="client_sub_category_branch_id"
                                                         id="client_sub_category_branch_id" class="form-control select2">
                                                         <option selected disabled hidden>Select</option>
-                                                        <option value="">District</option>
-                                                        <option value="">Special</option>
-                                                        <option value="">High Court</option>
-                                                        <option value="">Appellate</option>
+                                                        <option value="Select">Select</option>
+                                                        <option value="District">District</option>
+                                                        <option value="Special">Special</option>
 
                                                     </select>
                                                 </div>
@@ -2655,7 +2607,7 @@
 
         // datetimepicker
 
-        $(".dateandtimepicker").datetimepicker({
+        $(".").datetimepicker({
             format: 'Y-m-d H:i:s',
             formatTime: 'H:i:s',
             formatDate: 'Y-m-d',
@@ -3199,7 +3151,7 @@
 
         function add_upload() {
             var html =
-                '<div class="row upload"> <div class="col-2"> <div class="form-group"> <input type="file" name="documents_file" id="documents_file" class="form-control" style="padding: 3px;"> </div> </div> <div class="col-2"> <div class="form-group"> <input name="documents_doc_date" id="documents_doc_date" class="form-control" type="date"> </div> </div> <div class="col-2"> <div class="form-group">  <select name="documents_type_id" class="form-control" id="documents_type_id"> <option value="">Select</option> <option value="CC">CC</option> <option value="COPY">COPY</option> <option value="ORG">ORG</option> </select> </div> </div> <div class="col-2"> <div class="form-group"><input name="documents_uploaded_by" id="documents_uploaded_by" class="form-control" readonly type="text"> </div> </div> <div class="col-2"> <div class="form-group"> <input name="documents_date_time" id="documents_date_time" class="form-control dateandtimepicker" type="text"> </div> </div> <div class="col-2"> <div class="form-group row"> <div class="col-sm-8">  <select name="documents_action_id" class="form-control" id="documents_action_id"> <option value="">Select</option> </select> </div><button id="Deleteup" class="btn btn-danger " type="button"><i class="fas fa-trash-alt"></i> </button>  </div> </div> </div>';
+                '<div class="row upload"> <div class="col-2"> <div class="form-group"> <input type="file" name="documents_file" id="documents_file" class="form-control" style="padding: 3px;"> </div> </div> <div class="col-2"> <div class="form-group"> <input name="documents_doc_date" id="documents_doc_date" class="form-control" type="date"> </div> </div> <div class="col-2"> <div class="form-group">  <select name="documents_type_id" class="form-control" id="documents_type_id"> <option value="">Select</option> <option value="CC">CC</option> <option value="COPY">COPY</option> <option value="ORG">ORG</option> </select> </div> </div> <div class="col-2"> <div class="form-group"><input name="documents_uploaded_by" id="documents_uploaded_by" class="form-control" readonly type="text"> </div> </div> <div class="col-2"> <div class="form-group"> <input name="documents_date_time" id="documents_date_time" class="form-control " type="text"> </div> </div> <div class="col-2"> <div class="form-group row"> <div class="col-sm-8">  <select name="documents_action_id" class="form-control" id="documents_action_id"> <option value="">Select</option> </select> </div><button id="Deleteup" class="btn btn-danger " type="button"><i class="fas fa-trash-alt"></i> </button>  </div> </div> </div>';
             $('.add_upload').append(html);
             //   row.clone(true, true).appendTo(".add_upload");
         }
@@ -3373,7 +3325,7 @@
             $(this).parents(".delivery_new").remove();
         })
     </script>
-     <script>
+    <script>
         /* Variables */
         var row = $(".Evidence");
 
